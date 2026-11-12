@@ -27,4 +27,11 @@ Working static web app with workout logging, training calendar, Vermont and Utah
 - Export JSON backups regularly. Restore replaces the local log.
 - Authentication tokens are held in local browser storage; use a personal device and a strong password. Production-grade handling of sensitive information would warrant a security review.
 - SVG icon works in modern browsers; for broader PWA compatibility, consider generating 192px and 512px PNG icons and updating the manifest.
-- The app is not hosted yet; you must deploy it using your own account. This is not medical clearance to train with ongoing respiratory symptoms.
+- Deploy the upgrade to your existing GitHub Pages site. Stop training and seek medical advice for concerning or recurrent symptoms.
+
+## Version 3: Editable prescriptions
+- On a not-yet-completed training day, choose **Edit this workout**. The editor accepts one exercise per line: `Name | Sets | Reps/time | Reference load | Notes`. Add, delete, or reorder lines; save by accepting the prompt. The edited workout is synchronized with the rest of the training data.
+- Settings → **Training plan preferences**: choose Echo Bike for future conditioning, export plan JSON, or import revised plan JSON. Imports refuse to overwrite completed workout dates.
+- Power days include snatch and clean & jerk from the start, tailored to an experienced Olympic lifter (20+ years). Reference working weights: snatch 95 lb, clean & jerk 155 lb (not assumed 1RMs). Typical initial prescriptions: snatch 4×1–2 at 75–85 lb, clean & jerk 3×1 at 125–135 lb. Alternate emphasis, prioritize bar speed, use deload/taper weeks, and edit workouts as needed.
+- Completed workout plans are snapshotted when saved, protecting their exercise labels from subsequent program updates. Older completed workouts retain the original built-in plan unless edited before the upgrade.
+- Back up your JSON history and synchronize before deploying updates. Existing `ski-tracker-v2` local data and Supabase `training_data` are reused; no SQL changes required.
